@@ -30264,6 +30264,9 @@
 									}
 								}
 							}
+							if (_status.currentPhase!=null) {
+                                event.trigger("roundEnd");
+                            }
 							event.trigger('roundStart');
 						}
 					}
