@@ -12462,7 +12462,7 @@
 					}).set('prompt','选择'+get.translation(card)+'的结算方向').set('choice',choice).set('forceDie',true);
 					"step 2"
 					if(result&&result.control=='顺时针'){
-						var evt=event.getParent(),sorter=(_status.currentPhase||player);
+						var evt=event.getParent(),sorter=(player||_status.currentPhase);
 						evt.fixedSeat=true;
 						evt.targets.sortBySeat(sorter);
 						evt.targets.reverse();
@@ -16512,7 +16512,7 @@
 						if(num==0&&targets.length>1){
 							if(!info.multitarget){
 								if(!event.fixedSeat&&!sort){
-									targets.sortBySeat((_status.currentPhase||player));
+									targets.sortBySeat((player||_status.currentPhase));
 								}
 								if(animate)	for(var i=0;i<targets.length;i++){
 									targets[i].animate('target');
@@ -16527,7 +16527,7 @@
 					}
 					event.sortTarget();
 					event.getTriggerTarget=function(list1,list2){
-						var listx=list1.slice(0).sortBySeat((_status.currentPhase||player));
+						var listx=list1.slice(0).sortBySeat((player||_status.currentPhase));
 						for(var i=0;i<listx.length;i++){
 							if(get.numOf(list2,listx[i])<get.numOf(listx,listx[i])) return listx[i];
 						}

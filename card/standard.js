@@ -665,7 +665,7 @@ game.import('card',function(lib,game,ui,get,ai,_status){
 					}
 					"step 1"
 					if(result&&result.control=='顺时针'){
-						var evt=event.getParent(),sorter=(_status.currentPhase||player);
+						var evt=event.getParent(),sorter=(player||_status.currentPhase);
 						evt.fixedSeat=true;
 						evt.targets.sortBySeat(sorter);
 						evt.targets.reverse();
@@ -812,7 +812,7 @@ game.import('card',function(lib,game,ui,get,ai,_status){
 					},
 					result:{
 						target:function(player,target){
-							var sorter=(_status.currentPhase||player);
+							var sorter=(player||_status.currentPhase);
 							if(get.is.versus()){
 								if(target==sorter) return 1.5;
 								return 1;
